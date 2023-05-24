@@ -49,7 +49,7 @@ public class Ex01_Cal extends JFrame implements ActionListener, ItemListener{
 		
 		jp1.add(new JLabel("수 1: "));
 		jp1.add(jtf1);
-		jp1.add(new JLabel("수 1: "));
+		jp1.add(new JLabel("수 2: "));
 		jp1.add(jtf2);
 		jp1.add(new JLabel("연산자: "));
 		jp1.add(add);
@@ -83,13 +83,28 @@ public class Ex01_Cal extends JFrame implements ActionListener, ItemListener{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		
+		jb1.addActionListener(this);
 		jb2.addActionListener(this);
 		jb3.addActionListener(this);
 	}
-
+	
 	@Override
 	public void itemStateChanged(ItemEvent e) {
+		double num1, num2, result;
 		
+		num1 = Double.parseDouble(jtf1.getText());
+		num2 = Double.parseDouble(jtf2.getText());
+		
+		if(add.isSelected()) {
+			result = num1 + num2;
+			
+		}else if(sub.isSelected()) {
+			result = num1 - num2;
+		}else if(mul.isSelected()) {
+			result = num1 * num2;
+		}else if(div.isSelected()) {
+			result = num1 / num2;
+		}
 	}
 	
 	@Override
